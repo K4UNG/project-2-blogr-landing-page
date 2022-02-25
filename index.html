@@ -20,6 +20,7 @@
   <div class="hero">
     <nav>
       <img src="images/icon-hamburger.svg" alt="menu icon" class="bar">
+      <img src="images/icon-close.svg" alt="close icon" class="close">
       <div class="nav-left">
         <img src="images/logo.svg" alt="logo">
       </div>
@@ -158,4 +159,39 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+
+<script>
+  var bar = document.querySelector(".bar");
+  var cross = document.querySelector(".close");
+  var nav = document.querySelector(".nav-right");
+  var body = document.querySelector("body");
+  bar.onclick = ()=>{
+    bar.style.display = "none";
+    cross.style.display = "unset";
+    nav.style.opacity = "1";
+    nav.style['pointer-events'] = "all";
+  }
+
+  cross.onclick = ()=>{
+    cross.style.display = "none";
+    bar.style.display = "unset";
+    nav.style.opacity = "0";
+    nav.style['pointer-events'] = "none";
+  }
+
+  window.onresize = ()=>{
+    if (body.clientWidth > 840) {
+      bar.style.display = "none";
+      cross.style.display = "none";
+      nav.style.opacity = "1";
+      nav.style['pointer-events'] = "all";
+    }
+     else {
+      cross.style.display = "none";
+      bar.style.display = "unset";
+      nav.style.opacity = "0";
+      nav.style['pointer-events'] = "none";
+     }
+  }
+</script>
 </html>

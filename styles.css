@@ -52,6 +52,10 @@ hr {
     display: none;
 }
 
+.close {
+    display: none;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -115,15 +119,22 @@ nav {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition: .2s ease-in;
+    transition: 0s;
 }
 
 .product:focus>ul,
 .company:focus>ul,
 .connect:focus>ul {
+    transition: .2s ease-in;
     pointer-events: all;
     opacity: 1;
     transform: translateY(0);
+}
+
+.product:focus>span,
+.company:focus>span,
+.connect:focus>span {
+    color: var(--body-blue);
 }
 
 .product:focus>.one,
@@ -200,6 +211,7 @@ nav {
 
 .hero-btn1 {
     color: var(--red);
+    background-color: white;
     margin-right: 10px;
 }
 
@@ -395,10 +407,17 @@ nav {
         position: absolute;
         top: 35px;
         right: 35px;
+        cursor: pointer;
+    }
+
+    .close {
+        position: fixed;
+        top: 35px;
+        right: 35px;
+        cursor: pointer;
     }
 
     .nav-right {
-        display: none;
         z-index: 3;
         top: 10vh;
         right: 50%;
@@ -406,11 +425,14 @@ nav {
         flex-direction: column;
         position: fixed;
         background: white;
-        height: 50vh;
+        height: 60vh;
         width: 80%;
         padding: 50px 0;
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .2s;
     }
 
     .one {
@@ -443,6 +465,19 @@ nav {
         margin: 10px 0;
     }
 
+    .product>ul,
+    .company>ul,
+    .connect>ul {
+        background-color: rgba(0, 0, 0, 0.048);
+    }
+
+    .product a,
+    .company a,
+    .connect a {
+        font-weight: 600;
+        color: var(--body-blue);
+    }
+
     .product:focus>ul,
     .company:focus>ul,
     .connect:focus>ul {
@@ -451,7 +486,8 @@ nav {
         pointer-events: all;
         opacity: 1;
         transform: translateY(0);
-}
+        font-weight: 400;
+    }
 
     .nav-btn1 {
         color: var(--dark-blue);
